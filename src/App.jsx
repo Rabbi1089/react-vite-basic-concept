@@ -2,8 +2,14 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import BookStore from './BookStore'
+
 
 function App() {
+  const books = [
+    {id : 1, name: 'bangla', price : 100},
+    {id : 2, name: 'Math', price : 300}
+  ]
   return (
     <>
       <div>
@@ -14,6 +20,8 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
+
+      <BookStore books = {books}></BookStore>
       <h1>Vite + React</h1>
       <Person></Person>
       <Student></Student>
@@ -21,6 +29,11 @@ function App() {
       <Device name ="samsung" price = "1004"></Device>
       <Device name ="Nokia" price = "70$"></Device>
       <Device name ="LG" price = "90$"></Device>
+      <Student1 grade = "6" score = {1800}></Student1>
+      <Student1 grade = {900}></Student1>
+      <Student1 score = "8"></Student1>
+      
+
 
     </>
   )
@@ -72,6 +85,21 @@ function Device (props){
   }
   return <div style={DeviceStyle}>
 <h5>Device name is :{props.name} and this price is :{props.price} </h5>
+  </div>
+  
+}
+
+function Student1 ({grade = 0}, {score = 10}){
+  const StudentStyle = {
+    border: '2px solid green',
+    marginTop: '30px',
+    padding : '20px',
+    borderRadius: '30px',
+    backgroundColor : 'pink'
+  }
+  return <div style={StudentStyle}>
+<h5>class :{grade}</h5>
+<h5>Score :{score}</h5> 
   </div>
   
 }
